@@ -20,7 +20,19 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            transition: background 1.5s ease-in-out, color 1.5s ease-in-out;
+            transition: background 1.
+            5s ease-in-out, color 1.5s ease-in-out;
+        }
+        @keyframes pop {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        h2, p {
+            display: inline-block;
+            transition: pop 2s infinite ease-in-out;
+        }
+        h2:hover, p:hover {
+            animation: pop 0.5s infinite ease-in-out;
         }
         .container {
             width: 90%;
