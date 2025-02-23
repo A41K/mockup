@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background 1.5s ease-in-out, color 1.5s ease-in-out;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 15px;
+        }
+        .box {
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: background 1.5s ease-in-out, color 1.5s ease-in-out;
+        }
+        .big-box {
+            background: #262626;
+            color: white;
+            grid-column: span 1;
+            min-height: 550px;
+            width: 550px;
+            padding: 40px;
+        }
+        .big-box h2 {
+            font-size: 60px;
+            font-weight: 550;
+            letter-spacing: -1px;
+            margin-top: -10px;
+        }
+        .blog-box {
+            background: #d7d9dd;
+            color: black;
+            height: 275px;
+            width: 550px;
+            margin-left: -275px;
+        }
+        .blog-box h2 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-top: 170px;
+        }
+        .blog-box p {
+            font-size: 10px;
+            font-weight: 600;
+        }
+        .contact-box {
+            background: #b2f042;
+            color: black;
+            margin-left: 568px;
+            margin-top: -265.5px;
+            height: 250px;
+            width: 260px;
+        }
+        .contact-box h2 {
+            font-size: 40px;
+            font-weight: 400;
+            margin-top: 125px;
+        }
+        .contact-box p {
+            font-size: 10px;
+            font-weight: 600;
+        }
+        .about-box {
+            background: #a682ff;
+            color: white;
+            margin-top: -265.5px;
+            margin-left: 15px;
+            height: 250px;
+            width: 260px;
+        }
+        .about-box h2 {
+            font-size: 40px;
+            font-weight: 400;
+            margin-top: 140px;
+        }
+        .about-box p {
+            font-size: 10px;
+            font-weight: 600;
+        }
+        .shop-btn {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            color: black;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            width: max-content;
+            margin-top: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.3s;
+        }
+        .shop-btn:hover {
+            transform: scale(1.05);
+        }
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 1.5s ease-in-out, color 1.5s ease-in-out;
+        }
+        .img{
+            width: 250px;
+            height: 300px;
+            margin-top: -190px;
+            margin-left: 275px;
+        }
+        body.light-mode {
+            background: white;
+            color: black;
+        }
+        .light-mode .big-box {
+            background: #262626;
+            color: white;
+        }
+        .light-mode .toggle-btn {
+            background: black;
+            color: white;
+        }
+        .img2{
+            width: 250px;
+            height: 300px;
+            margin-top: -190px;
+            margin-left: 259px;
+        }
+        .arrow {
+            margin-top: -30px;
+            margin-left: 210px;
+            rotate: -60deg;
+        }
+        .arrow2 {
+            margin-top: -20px;
+            margin-left: 500px;
+            rotate: -60deg;
+        }
+        .arrow3 {
+            margin-top: -20px;
+            margin-left: 210px;
+            rotate: -60deg;
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleMode()">Light</button>
+    <div class="container">
+        <div class="box big-box">
+            <p>MORE OFFERS</p>
+            <h2>There is something else for you</h2>
+            <div class="shop-btn">🛒 All products</div>
+            <img src="something.png" class="img2">
+        </div>
+        <div class="box blog-box">
+            <p>WORLD OF HEARING TECHNOLOGY</p>
+            <span class="arrow2">&rarr;</span>
+            <h2>View our blog</h2>
+            <img src="blog.png" class="img">
+        </div>
+        <div class="box contact-box">
+            <p>HAVE SOME QUESTIONS?</p>
+            <span class="arrow">✈</span>
+            <h2>Contact us</h2>
+        </div>
+        <div class="box about-box">
+            <p>DISCOVER OUR HISTORY</p>
+            <span class="arrow3">&rarr;</span>
+            <h2>About us</h2>
+        </div>
+    </div>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('light-mode');
+            let button = document.querySelector(".toggle-btn");
+            button.textContent = document.body.classList.contains('light-mode') ? "Dark" : "Light";
+        }
+        function makeResponsive() {
+            const bigBox = document.querySelector(".big-box");
+            if (window.innerWidth < 768) {
+                bigBox.style.minHeight = "400px";
+            } else {
+                bigBox.style.minHeight = "550px";
+            }
+        }
+        window.addEventListener("resize", makeResponsive);
+        window.addEventListener("load", makeResponsive);
+    </script>
+</body>
+</html>
