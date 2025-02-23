@@ -123,6 +123,23 @@
             font-size: 10px;
             font-weight: 600;
         }
+        .contact-box.expanded {
+            width: 260px;
+            height: 350px;
+            padding: 30px;
+        }
+        .contact-box.expanded h2 {
+            font-size: 50px;
+            margin-top: 20px;
+        }
+        .contact-box.expanded .extra-content {
+            display: block;
+        }
+        .extra-content {
+            display: none;
+            font-size: 16px;
+            margin-top: 20px;
+        }
         .about-box {
             background: #a682ff;
             color: white;
@@ -134,11 +151,28 @@
         .about-box h2 {
             font-size: 40px;
             font-weight: 400;
-            margin-top: 140px;
+            margin-top: 135px;
         }
         .about-box p {
             font-size: 10px;
             font-weight: 600;
+        }
+        .about-box.expanded {
+            width: 260px;
+            height: 350px;
+            padding: 30px;
+        }
+        .about-box.expanded h2 {
+            font-size: 50px;
+            margin-top: 20px;
+        }
+        .about-box.expanded .extra-content {
+            display: block;
+        }
+        .extra-content {
+            display: none;
+            font-size: 16px;
+            margin-top: 20px;
         }
         .shop-btn {
             background: white;
@@ -205,7 +239,7 @@
             rotate: -60deg;
         }
         .arrow3 {
-            margin-top: -20px;
+            margin-top: -30px;
             margin-left: 210px;
             rotate: -60deg;
         }
@@ -227,14 +261,18 @@
             <img src="blog.png" class="img">
         </div>
         <div class="box contact-box">
-            <p>HAVE SOME QUESTIONS?</p>
-            <span class="arrow">✈</span>
-            <h2>Contact us</h2>
+            <div class="box contact-box" onclick="expandContact()"></div>
+                <p>HAVE SOME QUESTIONS?</p>
+                <span class="arrow">✈</span>
+                <h2>Contact us</h2>
+                <div class="extra-content">This was made by A41K so me. This is a mockup and will get expanded in the future</div>
         </div>
         <div class="box about-box">
+            <div class="box about-box" onclick="expandContact()"></div>
             <p>DISCOVER OUR HISTORY</p>
             <span class="arrow3">&rarr;</span>
             <h2>About us</h2>
+            <div class="extra-content">Heeey soo I'm A41K I made this so i could study React and Tailwind CSS. I hope i didnt make it shit</div>
         </div>
     </div>
     <script>
@@ -243,6 +281,29 @@
             let button = document.querySelector(".toggle-btn");
             button.textContent = document.body.classList.contains('light-mode') ? "Dark" : "Light";
         }
+        function expandContact() {
+            const contactBox = document.querySelector(".contact-box");
+            contactBox.classList.toggle("expanded");
+        }
+    document.addEventListener("DOMContentLoaded", function () {
+        const contactBox = document.querySelector(".contact-box");
+        contactBox.addEventListener("click", function () {
+            this.classList.toggle("expanded");
+        });
+    });
+
+
+    function expandContact() {
+            const contactBox = document.querySelector(".about-box");
+            contactBox.classList.toggle("expanded");
+        }
+    document.addEventListener("DOMContentLoaded", function () {
+        const contactBox = document.querySelector(".about-box");
+        contactBox.addEventListener("click", function () {
+            this.classList.toggle("expanded");
+        });
+    });
+
         function makeResponsive() {
             const bigBox = document.querySelector(".big-box");
             if (window.innerWidth < 768) {
